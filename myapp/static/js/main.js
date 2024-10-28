@@ -107,3 +107,15 @@
     
 })(jQuery);
 
+
+$(function () {
+    $('#date1, #date2').datetimepicker({
+        format: 'DD/MM/YY',
+        icons: {
+            time: 'd-none' // hides time icon, depending on library
+        },
+        pickTime: false
+    });
+});
+
+

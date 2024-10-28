@@ -56,7 +56,7 @@
         <!-- Logo Section with Image -->
         <div class="col-lg-3 col-md-4 col-6  d-flex align-items-center">
             <a href="/" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                <img src="{% static '/img/kasturilogo.png'  %}" alt="Hotelier Logo" class="img-fluid" style="max-height: 90px;">
+                <img src="{% static '/img/newlogo.png'  %}" alt="Hotelier Logo" class="img-fluid" style="max-height: 90px;">
             </a>
         </div>
 
@@ -110,7 +110,7 @@
 
 
         <!-- Booking Start -->
-        <form method="POST" action="{% url 'booking' %}">
+       <form method="POST" action="{% url 'booking' %}">
     {% csrf_token %}
     <div id="booking" class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container">
@@ -122,33 +122,21 @@
                                 <div class="date" id="date1" data-target-input="nearest">
                                     <input type="text" class="form-control datepicker-input"
                                            name="check_in" placeholder="Check in" data-target="#date1"
-                                           data-toggle="datetimepicker" />
+                                           data-toggle="datetimepicker" data-date-format="DD/MM/YY" data-date-time="false"/>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="date" id="date2" data-target-input="nearest">
                                     <input type="text" class="form-control datetimepicker-input"
                                            name="check_out" placeholder="Check out" data-target="#date2"
-                                           data-toggle="datetimepicker"/>
+                                           data-toggle="datetimepicker" data-date-format="DD/MM/YY" data-date-time="false"/>
                                 </div>
                             </div>
                             <div class="col-md-3">
-                                <select class="form-select" name="adults">
-                                    <option selected>Adult</option>
-                                    <option value="1">Adult 1</option>
-                                    <option value="2">Adult 2</option>
-                                    <option value="3">Adult 3</option>
-                                    <option value="4">More Than 3</option>
-                                </select>
+                                <input type="number" class="form-control" name="adults" placeholder="Number of Adults" min="1"/>
                             </div>
                             <div class="col-md-3">
-                                <select class="form-select" name="children">
-                                    <option selected>Child</option>
-                                    <option value="1">Child 1</option>
-                                    <option value="2">Child 2</option>
-                                    <option value="3">Child 3</option>
-                                    <option value="4">More Than 3</option>
-                                </select>
+                                <input type="number" class="form-control" name="children" placeholder="Number of Children" min="0"/>
                             </div>
                         </div>
                     </div>
@@ -160,7 +148,8 @@
         </div>
     </div>
 </form>
-        <!-- About Start -->
+
+ <!-- About Start -->
         <div id="about" class="container-xxl py-5">
             <div class="container">
                 <div class="row g-5 align-items-center">
@@ -196,25 +185,26 @@
                         </div>
                         <a href="#room"><button class="btn w-100" style="background-color: #304b3c; color: #c27f59;">Explore</button></a>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="row g-3">
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src="{% static '/img/17.jpeg' %}" style="margin-top: 25%;">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static '/img/3.jpeg' %}">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{% static '/img/9.jpeg' %}">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{% static '/img/2.jpeg' %}">
-                            </div>
-                        </div>
-                    </div>
+                   <div class="col-lg-6">
+    <div class="row g-3">
+        <div class="col-6 text-end">
+            <img class="img-fluid rounded wow zoomIn" data-wow-delay="0.1s" src="{% static '/img/17.jpeg' %}" style="width: 100%; height: auto;">
+        </div>
+        <div class="col-6 text-start">
+            <img class="img-fluid rounded wow zoomIn" data-wow-delay="0.3s" src="{% static '/img/3.jpeg' %}" style="width: 100%; height: auto;">
+        </div>
+        <div class="col-6 text-end">
+            <img class="img-fluid rounded wow zoomIn" data-wow-delay="0.5s" src="{% static '/img/9.jpeg' %}" style="width: 100%; height: auto;">
+        </div>
+        <div class="col-6 text-start">
+            <img class="img-fluid rounded wow zoomIn" data-wow-delay="0.7s" src="{% static '/img/2.jpeg' %}" style="width: 100%; height: auto;">
+        </div>
+    </div>
+</div>
                 </div>
             </div>
         </div>
+
         <!-- About End -->
 
 
@@ -333,7 +323,7 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">Rooms</h5>
-                            <p class="text-body mb-0">Experience comfort and elegance in our thoughtfully designed rooms, tailored to ensure a restful and rejuvenating stay.</p>
+                            <p class="text-white mb-0">Experience comfort and elegance in our thoughtfully designed rooms, tailored to ensure a restful and rejuvenating stay.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
@@ -344,7 +334,7 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">Food & Restaurant</h5>
-                            <p class="text-body mb-0"> Indulge in a variety of flavors with our carefully curated menus, featuring both local and international cuisine.</p>
+                            <p class="text-white mb-0"> Indulge in a variety of flavors with our carefully curated menus, featuring both local and international cuisine.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -355,21 +345,21 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">Safari</h5>
-                            <p class="text-body mb-0"> Embark on an unforgettable adventure with our expertly guided safaris, bringing you closer to the heart of nature.</p>
+                            <p class="text-white mb-0"> Embark on an unforgettable adventure with our expertly guided safaris, bringing you closer to the heart of nature.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-swimmer fa-2x"style="color: #c27f59;"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">Sports & Gaming</h5>
-                            <p class="text-body mb-0">Unleash your energy with our range of sports and gaming facilities, offering activities for all ages and skill levels.</p>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+    <a class="service-item rounded" href="">
+        <div class="service-icon bg-transparent border rounded p-1">
+            <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                <i class="fa fa-chess fa-2x" style="color: #c27f59;"></i>
+            </div>
+        </div>
+        <h5 class="mb-3">Sports & Gaming</h5>
+        <p class="text-white mb-0">Unleash your energy with our range of sports and gaming facilities, offering activities for all ages and skill levels.</p>
+    </a>
+</div>
+<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                         <a class="service-item rounded" href="">
                             <div class="service-icon bg-transparent border rounded p-1">
                                 <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
@@ -377,7 +367,7 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">Event & Party</h5>
-                            <p class="text-body mb-0">Celebrate life’s moments in style with our event and party services, perfect for creating unforgettable memories.</p>
+                            <p class="text-white mb-0">Celebrate life’s moments in style with our event and party services, perfect for creating unforgettable memories.</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
@@ -388,7 +378,7 @@
                                 </div>
                             </div>
                             <h5 class="mb-3">Yoga</h5>
-                            <p class="text-body mb-0">Find tranquility and wellness with our yoga sessions, designed to harmonize body, mind, and spirit in a serene setting.</p>
+                            <p class="text-white mb-0">Find tranquility and wellness with our yoga sessions, designed to harmonize body, mind, and spirit in a serene setting.</p>
                         </a>
                     </div>
                 </div>
@@ -422,7 +412,7 @@
                     <div class="col-md-6 col-lg-4">
                         <div class="rounded p-4" style="color: #304b3c;">
                          <a href="/" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                <img src="{% static '/img/kasturilogo.png'  %}" alt="Hotelier Logo" class="img-fluid" style="max-height: 120px;">
+                <img src="{% static '/img/newlogo.png'  %}" alt="Hotelier Logo" class="img-fluid" style="max-height: 120px;">
             </a>
                             <p class="text-white mb-0">
 "Kasturi Villa offers a luxurious blend of modern amenities and serene living, nestled in the heart of nature. Experience comfort and elegance with spacious interiors and picturesque surroundings, making it your perfect retreat."							</p>
@@ -433,12 +423,12 @@
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Ubeshvarji Road, Gourela</p>
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Udaipur, Rajasthan, 313003</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+91 8829954348</p>
-                      <!--  <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                        <div class="d-flex pt-2">
+                          <!--  <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
                             <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>-->
+                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>-->
+                            <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/iracalls/"><i class="fab fa-instagram"></i></a>
+                        </div>
                     </div>
                     <div class="col-lg-5 col-md-12">
                         <div class="row gy-5 g-4">

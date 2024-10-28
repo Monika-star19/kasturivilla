@@ -16,17 +16,20 @@ def booking_view(request):
         adults = request.POST.get('adults')
         children = request.POST.get('children')
 
-
-
         # Check if required fields are filled
         if not check_in or not check_out:
             messages.error(request, "Please enter both check-in and check-out dates.")
             return redirect('/')  # Redirect to the same page with an error
 
         try:
-            # Use dateutil's parser to convert the date format
-            check_in_date = parser.parse(check_in, dayfirst=True).date()  # Convert to date
-            check_out_date = parser.parse(check_out, dayfirst=True).date()  # Convert to date
+            # Parse the dates with DD/MM/YY format
+            check_in_date = parser.parse(check_in, dayfirst=True).date()  # Converts to date
+            check_out_date = parser.parse(check_out, dayfirst=True).date()  # Converts to date
+
+            # Validate that check-in is before check-out
+            if check_in_date >= check_out_date:
+                messages.error(request, "Check-in date must be before check-out date.")
+                return redirect('/')
 
             # Save booking data if validation passes
             Booking.objects.create(
@@ -39,7 +42,7 @@ def booking_view(request):
             return redirect('/')
 
         except ValueError:
-            messages.error(request, "Invalid date format. Please use DD/MM/YYYY.")
+            messages.error(request, "Invalid date format. Please use DD/MM/YY.")
             return redirect('/')
 
     return render(request, '/')
